@@ -9,13 +9,13 @@
  * License:           GPL v2 or later
  */
  
-define('COUNTDOWN__PLUGIN_DIR', plugin_dir_path( __FILE__ ) ); 
+define('RDCP__PLUGIN_DIR', plugin_dir_path( __FILE__ ) ); 
 
-require_once(COUNTDOWN__PLUGIN_DIR.'/recurring-daily-countdown-loadscripts.php');
-require_once(COUNTDOWN__PLUGIN_DIR.'/recurring-daily-countdown-menu.php');
-require_once(COUNTDOWN__PLUGIN_DIR.'/recurring-daily-countdown-shortcode.php');
+require_once(RDCP__PLUGIN_DIR.'/recurring-daily-countdown-loadscripts.php');
+require_once(RDCP__PLUGIN_DIR.'/recurring-daily-countdown-menu.php');
+require_once(RDCP__PLUGIN_DIR.'/recurring-daily-countdown-shortcode.php');
  
-add_action('wp_enqueue_scripts', 'loadScripts');  
-add_action( 'admin_menu', 'recurringDailyCountdownMenu' ); 
+add_action('wp_enqueue_scripts', 'rdcp_loadScripts');  
+add_action( 'admin_menu', 'rdcp_countdownMenu' ); 
 
-add_shortcode('recurring_daily_countdown', 'recurringDailyCountdownShortcode'); 
+add_shortcode('recurring_daily_countdown', 'rdcp_countdownShortcode'); 

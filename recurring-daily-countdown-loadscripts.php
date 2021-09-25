@@ -1,6 +1,6 @@
 <?php
 
-function loadScripts($hook) {  
+function rdcp_loadScripts($hook) {  
 	$hour = get_option( 'rdc_hour' ) ? get_option( 'rdc_hour' ) : "00";
 	$minute = get_option( 'rdc_minute' ) ? get_option( 'rdc_minute' ) : "00";	
 	

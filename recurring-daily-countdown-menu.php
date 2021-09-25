@@ -1,26 +1,26 @@
 <?php
 
-function recurringDailyCountdownMenu() {
+function rdcp_countdownMenu() {
     add_menu_page(
         'Recurring Daily Countdown Settings',
         'Recurring Daily Countdown',
         'manage_options',
         'recurring_daily_countdown',
-        'menuPage',
+        'rdcp_menuPage',
         null,
     );
 }
 
-function menuPage(){
+function rdcp_menuPage(){
 	$status = "";
 	
 	//update settings
-	if($_POST){
-		$formDataHour = $_POST['hour'] ? $_POST['hour'] : "";
-		$formDataMinute = $_POST['minute'] ? $_POST['minute'] : "";
+	if(isset($_POST)){
+		$formDataHour = isset($_POST['hour']) ? sanitize_text_field($_POST['hour']) : "";
+		$formDataMinute = isset($_POST['minute']) ? sanitize_text_field($_POST['minute']) : "";
 		
-		update_option( 'rdc_hour', $_POST['hour'] );
-		update_option( 'rdc_minute', $_POST['minute'] );
+		update_option( 'rdc_hour', $formDataHour );
+		update_option( 'rdc_minute', $formDataMinute );
 		
 		$status = "success";
 	}
