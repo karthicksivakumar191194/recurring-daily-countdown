@@ -15,15 +15,18 @@ function rdcp_menuPage(){
 	$status = "";
 	
 	//update settings
-	if(isset($_POST)){
+	if(isset($_POST) && (isset($_POST['hour']) || isset($_POST['minute']) )){
 		$formDataHour = isset($_POST['hour']) ? sanitize_text_field($_POST['hour']) : "";
 		$formDataMinute = isset($_POST['minute']) ? sanitize_text_field($_POST['minute']) : "";
 		
-		update_option( 'rdc_hour', $formDataHour );
-		update_option( 'rdc_minute', $formDataMinute );
+		$hourResponse = update_option( 'rdc_hour', $formDataHour );
+		$minuteResponse = update_option( 'rdc_minute', $formDataMinute );
 		
-		$status = "success";
+		if($hourResponse || $minuteResponse){
+			$status = "success";
+		}
 	}
+		
 	?>
 	
 	<!-- render view -->
@@ -38,8 +41,8 @@ function rdcp_menuPage(){
 		<?php } ?>
 		<form method='post' action='' novalidate='novalidate'>
 			<?php
-			if ( is_file( COUNTDOWN__PLUGIN_DIR . 'menu/layout.php' ) ) {
-				require_once(COUNTDOWN__PLUGIN_DIR . 'menu/layout.php');
+			if ( is_file( RDCP__PLUGIN_DIR . 'menu/layout.php' ) ) {
+				require_once(RDCP__PLUGIN_DIR . 'menu/layout.php');
 			}
 			
 			?>

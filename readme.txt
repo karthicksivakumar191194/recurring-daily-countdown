@@ -10,5 +10,5 @@ The best countdown plugin to show countdown daily for a fixed time.
 == Description ==
 Recurring countdown that run countdown, daily for a fixed time.
 
-Use `[recurring_daily_countdown]` in your posts and pages to display countdown. 
+Use `[recurring_daily_countdown]` shortcode in your posts and pages to display countdown. 
 
